@@ -7,7 +7,7 @@
 <mat-menu #themeMenu="matMenu" x-position="before">
   <mat-grid-list cols="2">
     <mat-grid-tile *ngFor="let theme of themes">
-      <button mat-icon-button (click)="installTheme(theme)" [matTooltip]="theme.accent" tabindex="-1"><mat-icon [style.color]="theme.primary">{{currentTheme === theme ? 'radio_button_checked' : 'radio_button_unchecked'}}</mat-icon></button>
+      <button mat-icon-button (click)="installTheme(theme)" tabindex="-1"><mat-icon [style.color]="theme.primary">{{currentTheme === theme ? 'radio_button_checked' : 'radio_button_unchecked'}}</mat-icon></button>
     </mat-grid-tile>
   </mat-grid-list>
 </mat-menu>

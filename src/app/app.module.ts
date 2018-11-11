@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

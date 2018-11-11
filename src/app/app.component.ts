@@ -1,22 +1,23 @@
-import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component, OnDestroy, HostBinding} from '@angular/core';
-import { OverlayContainer} from '@angular/cdk/overlay';
-import { DocsSiteTheme } from './models/docsSiteTheme.model';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnDestroy, HostBinding } from '@angular/core';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { OnInit } from '@angular/core';
+import { Theme } from './models/theme.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
 
   @HostBinding('class') componentCssClass;
 
-  fillerNav = Array.from({length: 10}, (_, i) => `Nav Item ${i + 1}`);
+  fillerNav = Array.from({ length: 10 }, (_, i) => `Nav Item ${i + 1}`);
 
-  fillerContent = Array.from({length: 10}, () =>
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+  fillerContent = Array.from({ length: 10 }, () =>
+    `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
@@ -24,49 +25,56 @@ export class AppComponent implements OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    /**
+    * Temi disponibili
+    */
+   themes: Theme[] = [
+    {
+      primary: '#3f51b5',
+      name: 'light-indigo-theme'
+    },
+    {
+      primary: '#673AB7',
+      name: 'light-deep-purple-theme'
+    },
+    {
+      primary: '#E91E63',
+      name: 'dark-pink-theme'
+    },
+    {
+      primary: '#9C27B0',
+      name: 'dark-purple-theme'
+    },
+  ];
+
+  /**
+    * Tema selezionato
+    */
+  currentTheme: Theme;
+
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public overlayContainer: OverlayContainer) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
- /**
-   * Temi disponibili
-   */
-  themes: DocsSiteTheme[] = [
-    {
-      primary: '#3F51B5',
-      accent: 'Indigo Light',
-      href: 'indigo-pink.css',
-      isDefault: true
-    },
-    {
-      primary: '#673ab7',
-      accent: 'Purple Light',
-      href: 'deeppurple-amber.css',
-    },
-    {
-      primary: '#e91e63',
-      accent: 'dark-theme',
-      href: 'pink-bluegrey.css',
-    },
-    {
-      primary: '#9c27b0',
-      accent: 'Purple Dark',
-      href: 'purple-green.css',
-    },
-  ];
 
-    /**
-   * Tema selezionato
-   */
-  currentTheme: DocsSiteTheme;
+  ngOnInit() {
+    this.componentCssClass = 'light-indigo-theme';
+    this.overlayContainer.getContainerElement().classList.add('light-indigo-theme');
+  }
 
   onSetTheme(theme) {
-    console.log(theme);
     this.currentTheme = theme;
-      this.componentCssClass = theme.accent;
+    this.componentCssClass = theme.name;
+
+    const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
+    const themeClassesToRemove = Array.from(overlayContainerClasses).filter((item: string) => item.includes('-theme'));
+    if (themeClassesToRemove.length) {
+      overlayContainerClasses.remove(...themeClassesToRemove);
     }
+    overlayContainerClasses.add(theme.name);
+  }
 
 
   ngOnDestroy(): void {

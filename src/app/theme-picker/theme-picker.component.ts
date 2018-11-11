@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { DocsSiteTheme } from '../models/docsSiteTheme.model';
+import { Theme } from '../models/theme.model';
 
 @Component({
   selector: 'app-theme-picker',
@@ -11,20 +11,20 @@ export class ThemePickerComponent {
   /**
    * Tema selezionato
    */
-  @Output() selectTheme: EventEmitter<DocsSiteTheme> = new EventEmitter();
+  @Output() selectTheme: EventEmitter<Theme> = new EventEmitter();
   /**
    * Temi disponibili
    */
-  @Input() themes: DocsSiteTheme[];
+  @Input() themes: Theme[];
   /**
    * Tema corrente
    */
-  @Input() currentTheme: DocsSiteTheme;
+  @Input() currentTheme: Theme;
   /**
    * Emette evento selezione di un nuovo tema
    * @param theme Tema selezionato
    */
-  installTheme(theme: DocsSiteTheme) {
+  installTheme(theme: Theme) {
     this.selectTheme.emit(theme);
   }
 
