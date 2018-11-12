@@ -3,6 +3,8 @@ import { ChangeDetectorRef, Component, OnDestroy, HostBinding } from '@angular/c
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { OnInit } from '@angular/core';
 import { Theme } from './models/theme.model';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -55,13 +57,17 @@ export class AppComponent implements OnInit, OnDestroy {
     */
   currentTheme: Theme;
 
-
-
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public overlayContainer: OverlayContainer) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public overlayContainer: OverlayContainer,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.fullImagePath = './assets/MST.png';
+    this.matIconRegistry.addSvgIcon(
+      'horse',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/horse.svg')
+    );
   }
 
 
