@@ -5,8 +5,8 @@
         <mat-icon>menu</mat-icon>
       </button>
     </div>
-    <div class="p-2">
-      <h1 class="example-app-name">Responsive App</h1>
+    <div class="p-2" >
+        <img [src]="fullImagePath">
     </div>
     <div class="ml-auto p-2">
       <app-theme-picker (selectTheme)="onSetTheme($event)" [currentTheme]="currentTheme" [themes]="themes"></app-theme-picker>
@@ -17,7 +17,67 @@
     <mat-sidenav #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
       <mat-nav-list>
-        <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span class="flag-icon flag-icon-ie mr-2"></span> Eire
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Navan
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    1
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="d-flex flex-wrap">
+                  <div class="closed p-2 text-center">1<br>13:30</div>
+                  <div class="closed p-2 text-center">2<br>14:30</div>
+                  <div class="closed p-2 text-center">3<br>15:30</div>
+                  <div class="closed p-2 text-center">4<br>16:30</div>
+                  <div class="opened p-2 text-center">5<br>17:30</div>
+                  <div class="opened p-2 text-center">6<br>18:30</div>
+                  <div class="opened p-2 text-center">7<br>19:30</div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="flag-icon flag-icon-gb mr-2"></span> England
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Sandown
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      1
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <div class="d-flex flex-wrap">
+                    <div class="closed p-2 text-center">1<br>13:30</div>
+                    <div class="closed p-2 text-center">2<br>14:30</div>
+                    <div class="closed p-2 text-center">3<br>15:30</div>
+                    <div class="closed p-2 text-center">4<br>16:30</div>
+                    <div class="opened p-2 text-center">5<br>17:30</div>
+                    <div class="opened p-2 text-center">6<br>18:30</div>
+                    <div class="opened p-2 text-center">7<br>19:30</div>
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </mat-expansion-panel>
+
+        </mat-accordion>
+
       </mat-nav-list>
     </mat-sidenav>
 

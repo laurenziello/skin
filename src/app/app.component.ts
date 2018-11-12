@@ -10,6 +10,9 @@ import { Theme } from './models/theme.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
+
+  fullImagePath: string;
+
   mobileQuery: MediaQueryList;
 
   @HostBinding('class') componentCssClass;
@@ -52,10 +55,13 @@ export class AppComponent implements OnInit, OnDestroy {
     */
   currentTheme: Theme;
 
+
+
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public overlayContainer: OverlayContainer) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.fullImagePath = './assets/MST.png';
   }
 
 

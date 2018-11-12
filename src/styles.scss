@@ -1,4 +1,5 @@
 
+@import "~bootstrap/scss/bootstrap";
 // Imports functions, variables, and mixins that are needed by other Bootstrap files
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
@@ -10,6 +11,8 @@
 
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
+$flag-icon-css-path: '~flag-icon-css/flags';
+@import "~flag-icon-css/sass/flag-icon";
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -21,8 +24,29 @@ $light-indigo-primary: mat-palette($mat-indigo);
 $light-indigo-accent:  mat-palette($mat-pink, A200, A100, A400);
 $light-indigo-theme:   mat-light-theme($light-indigo-primary, $light-indigo-accent);
 
+@mixin mix-app-theme($theme) {
+
+
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent); // Use mat-color to extract individual colors from a palette as necessary.
+  
+  .closed {
+    background-color: mat-color($primary);
+    color: mat-color($primary, default-contrast);
+    font-size: 0.9em;
+  }
+
+  .opened {
+    background-color: mat-color($accent);
+    color: mat-color($accent, default-contrast);
+    font-size: 0.9em;
+}
+}
+
 .light-indigo-theme {
-  @include angular-material-theme($light-indigo-theme)
+  @include angular-material-theme($light-indigo-theme);
+  @include mix-app-theme($light-indigo-theme);
 }
 
 
@@ -31,7 +55,8 @@ $light-deep-purple-primary: mat-palette($mat-deep-purple);
 $light-deep-purple-theme:   mat-light-theme($light-deep-purple-primary, $light-deep-purple-accent);
 
 .light-deep-purple-theme {
-  @include angular-material-theme($light-deep-purple-theme)
+  @include angular-material-theme($light-deep-purple-theme);
+  @include mix-app-theme($light-deep-purple-theme);
 }
 // Define an alternate dark theme.
 $dark-pink-primary: mat-palette($mat-pink);
@@ -44,6 +69,7 @@ $dark-pink-theme:   mat-dark-theme($dark-pink-primary, $dark-pink-accent, $dark-
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
 .dark-pink-theme {
   @include angular-material-theme($dark-pink-theme);
+  @include mix-app-theme($dark-pink-theme);
 }
 
 // Define an alternate dark theme.
@@ -56,4 +82,9 @@ $dark-purple-theme:   mat-dark-theme($dark-purple-primary, $dark-purple-accent);
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
 .dark-purple-theme {
   @include angular-material-theme($dark-purple-theme);
+  @include mix-app-theme($dark-purple-theme);
 }
+
+
+
+
