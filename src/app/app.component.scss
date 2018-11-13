@@ -17,10 +17,6 @@
     z-index: 2;
   }
   
-  h1.example-app-name {
-    margin-left: 8px;
-  }
-  
   .example-sidenav-container {
     /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
@@ -38,16 +34,39 @@
   }
 
   .mat-sidenav {
-    max-width: 300px;
+    max-width: 290px;
   }
-
-
 
  .logoimg  {
     background: url('../assets/MST.png') no-repeat center;
     background-size: cover;
     width: 100px;
     height: 36px;
-}
+  }
 
+  .example-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-x: auto;
+    z-index: 1; 
+  }
+
+  .example-footer::-webkit-scrollbar {
+    display: none;
+  }
+
+  .example-footer > div {
+    flex: 1
+  }
+
+  .example-footer > div > div {
+    white-space: nowrap;
+  }
+
+
+
+
+   
 

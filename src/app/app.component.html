@@ -1,16 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-  
+
   <mat-toolbar color="primary" class="example-toolbar d-flex ">
-    <div class="p-2">
+    <div class="">
       <button mat-icon-button (click)="snav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
     </div>
-    <div class="p-2 logoimg">
+    <div class="logoimg">
 
     </div>
-    <div class="ml-auto p-2">
+    <div class="ml-auto">
       <app-theme-picker (selectTheme)="onSetTheme($event)" [currentTheme]="currentTheme" [themes]="themes"></app-theme-picker>
     </div>
   </mat-toolbar>
@@ -36,19 +36,19 @@
                   </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="d-flex flex-wrap">
-                  <div class="closed p-2 text-center">1
+                  <div class="closed p-1 text-center">1
                     <br>13:30</div>
-                  <div class="closed p-2 text-center">2
+                  <div class="closed p-1 text-center">2
                     <br>14:30</div>
-                  <div class="closed p-2 text-center">3
+                  <div class="closed p-1 text-center">3
                     <br>15:30</div>
-                  <div class="closed p-2 text-center">4
+                  <div class="closed p-1 text-center">4
                     <br>16:30</div>
-                  <div class="opened p-2 text-center">5
+                  <div class="opened p-1 text-center">5
                     <br>17:30</div>
-                  <div class="opened p-2 text-center">6
+                  <div class="opened p-1 text-center">6
                     <br>18:30</div>
-                  <div class="opened p-2 text-center">7
+                  <div class="opened p-1 text-center">7
                     <br>19:30</div>
                 </div>
               </mat-expansion-panel>
@@ -72,19 +72,19 @@
                   </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="d-flex flex-wrap">
-                  <div class="closed p-2 text-center">1
+                  <div class="closed p-1 text-center">1
                     <br>13:30</div>
-                  <div class="closed p-2 text-center">2
+                  <div class="closed p-1 text-center">2
                     <br>14:30</div>
-                  <div class="closed p-2 text-center">3
+                  <div class="closed p-1 text-center">3
                     <br>15:30</div>
-                  <div class="closed p-2 text-center">4
+                  <div class="closed p-1 text-center">4
                     <br>16:30</div>
-                  <div class="opened p-2 text-center">5
+                  <div class="opened p-1 text-center">5
                     <br>17:30</div>
-                  <div class="opened p-2 text-center">6
+                  <div class="opened p-1 text-center">6
                     <br>18:30</div>
-                  <div class="opened p-2 text-center">7
+                  <div class="opened p-1 text-center">7
                     <br>19:30</div>
                 </div>
               </mat-expansion-panel>
@@ -97,465 +97,79 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <mat-tab-group>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-
-          <ng-template matTabContent>
-            
-         
-         
-              <div class="container-fluid">
-                  <div class="row">
-                            
-           <div class="col-10"><mat-card class="mt-2">Main</mat-card></div>
-           <div class="col-2"><mat-card class="mt-2">Ticket</mat-card></div>
-                  </div>
-                </div>
-
-        
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <mat-icon svgIcon="horse" color="primary"></mat-icon>
-                  16:00</div>
-              </div>
-              <div class="row justify-content-md-center">
-                <div class="col">
-                  <span class="flag-icon flag-icon-gb"></span>
-                  <span matBadge="4" matBadgeOverlap="false">Thu</span>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template matTabContent>
-
-          </ng-template>
-        </mat-tab>
-      </mat-tab-group>
 
 
 
-
+      <div>
+        <p *ngFor="let content of fillerContent">{{content}}</p>
+      </div>
       <router-outlet></router-outlet>
+
     </mat-sidenav-content>
   </mat-sidenav-container>
+
+  <div class="d-flex example-footer p-0">
+    <div class="closed text-center">
+      <div class="pl-3 pr-3">
+        <mat-icon svgIcon="horse" color="warn"></mat-icon>
+        16:00
+      </div>
+      <div class="pl-3 pr-3">
+        <span class="flag-icon flag-icon-gb"></span>
+        <span matBadge="4" matBadgeOverlap="false">Thu</span>
+      </div>
+    </div>
+    <div class="opened text-center">
+      <div class="pl-3 pr-3">
+        <mat-icon svgIcon="horse" color="warn"></mat-icon>
+        16:00
+      </div>
+      <div class="pl-3 pr-3">
+        <span class="flag-icon flag-icon-gb"></span>
+        <span matBadge="4" matBadgeOverlap="false">Thu</span>
+      </div>
+    </div>
+    <div class="opened text-center">
+      <div class="pl-3 pr-3">
+        <mat-icon svgIcon="horse" color="warn"></mat-icon>
+        16:00
+      </div>
+      <div class="pl-3 pr-3">
+        <span class="flag-icon flag-icon-gb"></span>
+        <span matBadge="4" matBadgeOverlap="false">Thu</span>
+      </div>
+    </div>
+    <div class="opened text-center">
+      <div class="pl-3 pr-3">
+        <mat-icon svgIcon="horse" color="warn"></mat-icon>
+        16:00
+      </div>
+      <div class="pl-3 pr-3">
+        <span class="flag-icon flag-icon-gb"></span>
+        <span matBadge="4" matBadgeOverlap="false">Thu</span>
+      </div>
+    </div>
+    <div class="opened text-center">
+      <div class="pl-3 pr-3">
+        <mat-icon svgIcon="horse" color="warn"></mat-icon>
+        16:00
+      </div>
+      <div class="pl-3 pr-3">
+        <span class="flag-icon flag-icon-gb"></span>
+        <span matBadge="4" matBadgeOverlap="false">Thu</span>
+      </div>
+    </div>
+    <div class="opened text-center">
+      <div class="pl-3 pr-3">
+        <mat-icon svgIcon="horse" color="warn"></mat-icon>
+        16:00
+      </div>
+      <div class="pl-3 pr-3">
+        <span class="flag-icon flag-icon-gb"></span>
+        <span matBadge="4" matBadgeOverlap="false">Thu</span>
+      </div>
+    </div>
+  </div>
+
+
 </div>
