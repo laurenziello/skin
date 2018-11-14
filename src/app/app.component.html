@@ -19,14 +19,15 @@
     <mat-sidenav #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
         <mat-accordion>
-          <mat-expansion-panel>
+          <mat-expansion-panel class="expansidenav">
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <span class="flag-icon flag-icon-ie mr-2"></span> Eire
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
             <mat-accordion>
-              <mat-expansion-panel>
+              <mat-expansion-panel  class="expansidenav">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     Navan
@@ -35,6 +36,7 @@
                     1
                   </mat-panel-description>
                 </mat-expansion-panel-header>
+                <ng-template matExpansionPanelContent>
                 <div class="d-flex flex-wrap">
                   <div class="closed p-1 text-center">1
                     <br>13:30</div>
@@ -51,18 +53,20 @@
                   <div class="opened p-1 text-center">7
                     <br>19:30</div>
                 </div>
+                </ng-template>
               </mat-expansion-panel>
             </mat-accordion>
+            </ng-template>
           </mat-expansion-panel>
 
-          <mat-expansion-panel>
+          <mat-expansion-panel class="expansidenav">
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <span class="flag-icon flag-icon-gb mr-2"></span> England
               </mat-panel-title>
             </mat-expansion-panel-header>
             <mat-accordion>
-              <mat-expansion-panel>
+              <mat-expansion-panel class="expansidenav">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     Sandown
@@ -91,6 +95,8 @@
             </mat-accordion>
           </mat-expansion-panel>
 
+
+ 
         </mat-accordion>
 
       </mat-nav-list>
@@ -116,7 +122,7 @@
       </div>
       <div class="pl-3 pr-3">
         <span class="flag-icon flag-icon-gb"></span>
-        <span matBadge="4" matBadgeOverlap="false">Thu</span>
+        <span matBadge="4" matBadgeOverlap="false" matBadgeColor="warn">Thu</span>
       </div>
     </div>
     <div class="opened text-center">
