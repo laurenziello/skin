@@ -76,3 +76,7 @@ $dark-purple-theme : mat-dark-theme($dark-purple-primary, $dark-purple-accent);
 .expansidenav .mat-expansion-panel-content>.mat-expansion-panel-body {
     padding: 0;
 }
+
+.stepper .mat-horizontal-stepper-header-container .mat-horizontal-stepper-header {
+    padding-bottom: 0px;
+  }

@@ -21,6 +21,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   fillerNav = Array.from({ length: 10 }, (_, i) => `Nav Item ${i + 1}`);
 
+  centerFlex = Array.from({ length: 4 }, (_, i) => `Nav Item ${i + 1}`);
+
   fillerContent = Array.from({ length: 50 }, () =>
     `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
