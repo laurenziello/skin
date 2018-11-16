@@ -27,10 +27,6 @@
     flex: 1 0 auto;
 }
 
-.flag-icon {
-    border-radius: 50%;
-}
-
 .mat-sidenav {
     max-width: 290px;
 }
@@ -40,6 +36,7 @@
     background-size: cover;
     width: 100px;
     height: 36px;
+    cursor:pointer;
 }
 
 .example-footer {
@@ -63,16 +60,16 @@
     white-space: nowrap;
 }
 
+.count {
+    font-size: 3em;
+}
 
-  .count {
-      font-size: 3em;
-  }
+.flag-icon {
+    height: 20px;
+    width: 20px;
+}
 
-  .giubba {
-    max-width: 30px;
-    max-height: 40px;
-    padding-bottom: 10px;
-  }
-
-
-  
+.flag-footer>.flag-icon {
+    height: 16px;
+    width: 16px;
+}

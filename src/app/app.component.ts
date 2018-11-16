@@ -5,6 +5,7 @@ import { OnInit } from '@angular/core';
 import { Theme } from './models/theme.model';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   centerFlex = Array.from({ length: 4 }, (_, i) => `Nav Item ${i + 1}`);
 
+  threearray = Array.from({ length: 3 }, (_, i) => `Nav Item ${i + 1}`);
+
   fillerContent = Array.from({ length: 50 }, () =>
     `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -32,10 +35,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-    /**
-    * Temi disponibili
-    */
-   themes: Theme[] = [
+  /**
+  * Temi disponibili
+  */
+  themes: Theme[] = [
     {
       primary: '#3f51b5',
       name: 'light-indigo-theme'
@@ -59,9 +62,11 @@ export class AppComponent implements OnInit, OnDestroy {
     */
   currentTheme: Theme;
 
+
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public overlayContainer: OverlayContainer,
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer) {
+    private domSanitizer: DomSanitizer,
+    private router: Router) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -90,6 +95,13 @@ export class AppComponent implements OnInit, OnDestroy {
     overlayContainerClasses.add(theme.name);
   }
 
+  racedetail(id: number) {
+    this.router.navigate(['race/', id]);
+  }
+
+  home(): void {
+    this.router.navigate(['next/']);
+  }
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);

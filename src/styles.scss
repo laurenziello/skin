@@ -27,11 +27,13 @@ $light-indigo-theme : mat-light-theme($light-indigo-primary, $light-indigo-accen
         background-color: mat-color($primary);
         color: mat-color($primary, default-contrast);
         font-size: 0.9em;
+        cursor:pointer;
     }
     .opened {
         background-color: mat-color($accent);
         color: mat-color($accent, default-contrast);
         font-size: 0.9em;
+        cursor:pointer;
     }
 }
 

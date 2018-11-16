@@ -8,12 +8,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NextComponent } from './next/next.component';
+import { RaceComponent } from './race/race.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ThemePickerComponent
+    ThemePickerComponent,
+    NextComponent,
+    RaceComponent
   ],
   imports: [
     BrowserModule,
