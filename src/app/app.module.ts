@@ -10,6 +10,9 @@ import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NextComponent } from './next/next.component';
 import { RaceComponent } from './race/race.component';
+import { MainComponent } from './main/main.component';
+import { NextracesComponent } from './nextraces/nextraces.component';
+import { TodayraceComponent } from './todayrace/todayrace.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { RaceComponent } from './race/race.component';
     AppComponent,
     ThemePickerComponent,
     NextComponent,
-    RaceComponent
+    RaceComponent,
+    MainComponent,
+    NextracesComponent,
+    TodayraceComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+<mat-accordion [displayMode]="flat" [multi]=true>
+    <mat-expansion-panel class="expansidenav" [expanded]=true>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Next
+        </mat-panel-title>
+        <mat-panel-description>
+          
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <app-nextraces></app-nextraces>
+    </mat-expansion-panel>
+    <mat-expansion-panel class="expansidenav">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Today
+        </mat-panel-title>
+        <mat-panel-description>
+          
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-todayrace></app-todayrace>
+    </mat-expansion-panel>
+  </mat-accordion>

@@ -1,0 +1,39 @@
+<mat-accordion [displayMode]="flat" [multi]=true>
+  <mat-expansion-panel class="expansidenav" *ngFor="let country of races.country">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+
+        <div mat-card-avatar class="flag-icon mr-1"
+        [ngClass]="{
+          'flag-icon-ie':country.id === '55',
+          'flag-icon-gb':country.id === '242',
+          'flag-icon-in':country.id === '90',
+          'flag-icon-it':country.id === '112',
+          'flag-icon-za':country.id === '203',
+          'flag-icon-us':country.id === '202'
+        }"></div> {{country.country}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="d-flex flex-column pl-4 pr-4" *ngFor="let course of country.course;">
+
+        <div>
+            {{course.name}}
+          </div>
+      <div class="d-flex flex-row">
+        <div class="d-flex flex-column pl-3 pr-3 pb-2 pt-2"
+        [ngClass]="{
+          'closed':race.st === '1',
+          'opened':race.st === '14'
+        }" *ngFor="let race of course.race;">
+          <div>{{race.number}}</div>
+          <div>{{race.date | date : 'h:mm a'}}</div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </mat-expansion-panel>
+</mat-accordion>

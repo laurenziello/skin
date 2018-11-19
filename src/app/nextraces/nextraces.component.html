@@ -1,0 +1,51 @@
+<div class="d-flex flex-row">
+  <div class="flex-fill p-2" *ngFor="let c of threearray">
+    <div class="d-flex flex-column">
+      <div>
+        <div class="d-flex flex-column">
+          <div class="d-flex flex-row">
+            <div>
+              <div mat-card-avatar class="flag-icon flag-icon-gb mr-1"></div>Kempton
+            </div>
+            <div class="ml-auto">18:00</div>
+          </div>
+
+          <div>HORSE GALOP race 1</div>
+          <div>5 Runners, 44,100.00 GBP Prize</div>
+        </div>
+      </div>
+      <div class="d-flex flex-column">
+        <div *ngFor="let c of threearray" class="d-flex flex-row">
+
+          <div>
+            <img class="giubba" src="https://cdn.mediasystemtechnologies.it/ippicaoutfits/20181115WAG0105.png" title="Scuderia: MESDAMES B A MOODY E A E PEASE">
+
+
+
+          </div>
+          <div>
+            <div class="d-flex flex-column">
+              <div>
+                <b> 1</b> Al Daiha
+              </div>
+
+              <div>
+                G Mosse
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="ml-auto">
+            <button mat-raised-button color="primary" class="ml-1">W 18.00</button>
+            <button mat-raised-button color="primary" class="ml-1">P 3.40</button>
+          </div>
+
+        </div>
+      </div>
+      <div class="ml-auto">More ></div>
+    </div>
+  </div>
+
+</div>
