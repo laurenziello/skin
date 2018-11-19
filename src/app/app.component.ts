@@ -6,6 +6,7 @@ import { Theme } from './models/theme.model';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { RaceService } from './race.service';
 
 @Component({
   selector: 'app-root',
@@ -35,24 +36,28 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private _mobileQueryListener: () => void;
 
+  races: any;
+
+  next: any;
+
   /**
   * Temi disponibili
   */
   themes: Theme[] = [
     {
-      primary: '#3f51b5',
+      primary: '#e65100',
       name: 'light-indigo-theme'
     },
     {
-      primary: '#673AB7',
+      primary: '#00C853',
       name: 'light-deep-purple-theme'
     },
     {
-      primary: '#E91E63',
+      primary: '#009688',
       name: 'dark-pink-theme'
     },
     {
-      primary: '#9C27B0',
+      primary: '#2979FF',
       name: 'dark-purple-theme'
     },
   ];
@@ -66,7 +71,8 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public overlayContainer: OverlayContainer,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
-    private router: Router) {
+    private router: Router,
+    private raceService: RaceService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -81,6 +87,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.componentCssClass = 'light-indigo-theme';
     this.overlayContainer.getContainerElement().classList.add('light-indigo-theme');
+    this.getRaces();
+    this.getNext();
   }
 
   onSetTheme(theme) {
@@ -101,6 +109,16 @@ export class AppComponent implements OnInit, OnDestroy {
 
   home(): void {
     this.router.navigate(['next/']);
+  }
+
+  getRaces(): void {
+    this.raceService.getRaces()
+        .subscribe(races => this.races = races);
+  }
+
+  getNext(): void {
+    this.raceService.getNext()
+        .subscribe(next => this.next = next);
   }
 
   ngOnDestroy(): void {

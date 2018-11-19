@@ -1,25 +1,63 @@
-<mat-accordion [displayMode]="flat" [multi]=true>
-    <mat-expansion-panel class="expansidenav" [expanded]=true>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Next
-        </mat-panel-title>
-        <mat-panel-description>
-          
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-  
-      <app-nextraces></app-nextraces>
-    </mat-expansion-panel>
-    <mat-expansion-panel class="expansidenav">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Today
-        </mat-panel-title>
-        <mat-panel-description>
-          
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <app-todayrace></app-todayrace>
-    </mat-expansion-panel>
-  </mat-accordion>
+<div class="d-flex flex-wrap">
+  <div class="p-2 flex-grow-1">
+    <mat-card class="example-card">
+      <mat-card-content>
+        <div class="d-flex">
+          <div class="p-2 flex-fill">
+            <b>Prossima CORSA</b>
+            <br/>
+            <div mat-card-avatar class="flag-icon flag-icon-gb mr-1"></div> Italia TREVISO GL/PM GALOPPO
+            <br/> Corsa 6 (ore 16:30) in partenza tra:
+            <p class="mt-2 count text-center">00:00:30
+              <br/>
+              <button mat-raised-button color="primary" (click)="racedetail(1)">SCOMMETTI ORA</button>
+            </p>
+
+          </div>
+          <div class="p-2 flex-fill">
+            <b>Premio TRASPORTO RAPIDO</b>
+            <br/> Montepremi: 5.060 €
+            <br/> Num. Concorso: 3586
+            <br/> Distanza: M.1660
+            <br/> Tipologia Pista: PICCOLA
+            <br/> Tipologia Corsa: CAT. E GENTLEMEN
+            <br/> Tempo: BELLO
+            <br/> Terreno: BUONO
+            <br/> Stato Corsa: APERTA
+          </div>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+  <div class="p-2">
+    <mat-card class="video-card">
+      <img mat-card-image src="../assets/video_img.png" alt="Video" class="mt-0">
+    </mat-card>
+  </div>
+</div>
+<mat-accordion displayMode='flat' [multi]=true>
+  <mat-expansion-panel class="expansidenav " [expanded]=true>
+    <mat-expansion-panel-header class="header-panel" collapsedHeight="35px" expandedHeight="35px">
+      <mat-panel-title class="header-panel" >
+        Next Races
+      </mat-panel-title>
+      <mat-panel-description class="header-panel">
+
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-nextraces></app-nextraces>
+  </mat-expansion-panel>
+  <mat-expansion-panel class="expansidenav">
+    <mat-expansion-panel-header class="header-panel" collapsedHeight="35px" expandedHeight="35px">
+      <mat-panel-title class="header-panel">
+        Today Races
+      </mat-panel-title>
+      <mat-panel-description class="header-panel">
+
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-todayrace></app-todayrace>
+  </mat-expansion-panel>
+</mat-accordion>

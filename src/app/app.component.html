@@ -7,52 +7,79 @@
         <mat-icon>menu</mat-icon>
       </button>
     </div>
-    <div class="logoimg"  (click)="home()">
+    <div class="logoimg" (click)="home()">
 
     </div>
+    <div class="flex-grow-1 example-footer mat-expansion-panel-content" >
+      <div class="d-flex">
+        <div class="flex-fill closed text-center border-right" *ngFor="let race of next.race" (click)="racedetail(race.id)">
+          <div class="pl-3 pr-3">
+            <mat-icon svgIcon="horse" color="accent"></mat-icon>
+           {{race.date | date : 'HH:mm'}}
+          </div>
+          <div class="pl-3 pr-3 flag-footer">
+            <div mat-card-avatar class="flag-icon  mr-1"
+            [ngClass]="{
+              'flag-icon-ie':race.cid === '55',
+              'flag-icon-gb':race.cid === '242',
+              'flag-icon-in':race.cid === '90',
+              'flag-icon-it':race.cid === '112',
+              'flag-icon-za':race.cid === '203',
+              'flag-icon-us':race.cid === '202'
+            }"></div>
+            <span matBadge="{{race.number}}" matBadgeOverlap="false" matBadgeColor="accent">{{race.meeting | slice:0:4}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="ml-auto">
       <app-theme-picker (selectTheme)="onSetTheme($event)" [currentTheme]="currentTheme" [themes]="themes"></app-theme-picker>
     </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
         <mat-accordion>
-          <mat-expansion-panel class="expansidenav" *ngFor="let c of fillerNav">
+          <mat-expansion-panel class="expansidenav" *ngFor="let country of races.country">
             <mat-expansion-panel-header>
               <mat-panel-title>
-               
-                <div mat-card-avatar class="flag-icon flag-icon-gb mr-1"></div> Eire
+
+                <div mat-card-avatar class="flag-icon mr-1"
+                [ngClass]="{
+                  'flag-icon-ie':country.id === '55',
+                  'flag-icon-gb':country.id === '242',
+                  'flag-icon-in':country.id === '90',
+                  'flag-icon-it':country.id === '112',
+                  'flag-icon-za':country.id === '203',
+                  'flag-icon-us':country.id === '202'
+                }"></div> {{country.country}}
               </mat-panel-title>
             </mat-expansion-panel-header>
             <mat-accordion>
-              <mat-expansion-panel class="expansidenav">
+              <mat-expansion-panel class="expansidenav"  *ngFor="let course of country.course;">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    Navan
+                      {{course.name}}
                   </mat-panel-title>
                   <mat-panel-description>
-                    1
+                    {{course.race.length}}
                   </mat-panel-description>
                 </mat-expansion-panel-header>
 
                 <div class="d-flex flex-wrap">
-                  <div class="closed p-1 text-center">1
-                    <br>13:30</div>
-                  <div class="closed p-1 text-center">2
-                    <br>14:30</div>
-                  <div class="closed p-1 text-center">3
-                    <br>15:30</div>
-                  <div class="closed p-1 text-center">4
-                    <br>16:30</div>
-                  <div class="opened p-1 text-center">5
-                    <br>17:30</div>
-                  <div class="opened p-1 text-center">6
-                    <br>18:30</div>
-                  <div class="opened p-1 text-center">7
-                    <br>19:30</div>
+
+                    <div class="d-flex flex-column p-1 border-right"
+                    [ngClass]="{
+                      'closed':race.st === '1',
+                      'opened':race.st === '14'
+                    }" *ngFor="let race of course.race;">
+                      <div>{{race.number}}</div>
+                      <div>{{race.date | date : 'HH:mm'}}</div>
+                    </div>
                 </div>
+
 
               </mat-expansion-panel>
             </mat-accordion>
@@ -71,75 +98,13 @@
 
 
 
-      <div class="d-flex flex-wrap">
-        <div class="p-2 flex-grow-1">
-          <mat-card class="example-card">
-            <mat-card-content>
-              <div class="d-flex">
-                <div class="p-2 flex-fill">
-                  <b>Prossima CORSA</b>
-                  <br/>
-                  <div mat-card-avatar class="flag-icon flag-icon-gb mr-1"></div> Italia TREVISO GL/PM GALOPPO
-                  <br/> Corsa 6 (ore 16:30) in partenza tra:
-                  <p class="mt-2 count text-center">00:00:30
-                    <br/>
-                    <button mat-raised-button color="primary"  (click)="racedetail(1)">SCOMMETTI ORA</button>
-                  </p>
-
-                </div>
-                <div class="p-2 flex-fill">
-                  <b>Premio TRASPORTO RAPIDO</b>
-                  <br/> Montepremi: 5.060 €
-                  <br/> Num. Concorso: 3586
-                  <br/> Distanza: M.1660
-                  <br/> Tipologia Pista: PICCOLA
-                  <br/> Tipologia Corsa: CAT. E GENTLEMEN
-                  <br/> Tempo: BELLO
-                  <br/> Terreno: BUONO
-                  <br/> Stato Corsa: APERTA
-                </div>
-              </div>
-            </mat-card-content>
-
-          </mat-card>
-        </div>
-        <div class="p-2">
-          <mat-card class="video-card">
-            <img mat-card-image src="../assets/video_img.png" alt="Video" class="mt-0">
-          </mat-card>
-        </div>
-      </div>
-
 
       <div class="d-flex flex-column p-2">
-      <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 
-  <div class="d-flex example-footer p-0">
-    <div class="closed text-center border-right" *ngFor="let c of centerFlex; index as i"  (click)="racedetail(i)"> 
-      <div class="pl-3 pr-3">
-        <mat-icon svgIcon="horse" color="warn"></mat-icon>
-        16:00
-      </div>
-      <div class="pl-3 pr-3 flag-footer">
-          <div mat-card-avatar class="flag-icon flag-icon-gb mr-1"></div>
-        <span matBadge="4" matBadgeOverlap="false" matBadgeColor="warn">Thu</span>
-      </div>
-    </div>
-    <div class="opened text-center border-right" *ngFor="let c of centerFlex">
-      <div class="pl-3 pr-3">
-        <mat-icon svgIcon="horse" color="warn"></mat-icon>
-        16:00
-      </div>
-      <div class="pl-3 pr-3 flag-footer">
-          <div mat-card-avatar class="flag-icon flag-icon-gb mr-1"></div>
-        <span matBadge="4" matBadgeOverlap="false">Thu</span>
-      </div>
-    </div>
-
-  </div>
 
 
 </div>

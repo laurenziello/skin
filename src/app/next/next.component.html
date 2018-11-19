@@ -1,67 +1,63 @@
-
-
-
-
 <mat-horizontal-stepper labelPosition="bottom" class="stepper">
-    <ng-template matStepperIcon="edit">
-      <mat-icon>done</mat-icon>
-    </ng-template>
+  <ng-template matStepperIcon="edit">
+    <mat-icon>done</mat-icon>
+  </ng-template>
 
-    <ng-template matStepperIcon="done">
-      <mat-icon>done_all</mat-icon>
-    </ng-template>
-    <ng-template matStepperIcon="number" color="primay">
-      <mat-icon>done_all</mat-icon>
-    </ng-template>
-    <mat-step [completed]="true" *ngFor="let c of centerFlex; index as i">
+  <ng-template matStepperIcon="done">
+    <mat-icon>done_all</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="number" color="primay">
+    <mat-icon>done_all</mat-icon>
+  </ng-template>
+  <mat-step [completed]="true" *ngFor="let c of centerFlex; index as i">
 
 
 
-        <div class="d-flex">
+    <div class="d-flex">
       <div class="p-2">
         <button mat-raised-button matStepperPrevious *ngIf="i!=0" color="accent">Back</button>
       </div>
       <div class="ml-auto p-2 ">
-        <button  mat-raised-button matStepperNext *ngIf="i!=centerFlex.length - 1" color="accent">Next</button>
+        <button mat-raised-button matStepperNext *ngIf="i!=centerFlex.length - 1" color="accent">Next</button>
       </div>
     </div>
-      <div class="d-flex flex-wrap">
+    <div class="d-flex flex-wrap">
 
 
-        <div class="p-2 flex-fill" *ngFor="let c of threearray">
-          <mat-card>
-            <mat-card-header>
+      <div class="p-2 flex-fill" *ngFor="let c of threearray">
+        <mat-card>
+          <mat-card-header>
 
-              <mat-card-title>
+            <mat-card-title>
 
-                  <div mat-card-avatar class="flag-icon flag-icon-gb mr-1"></div>Kempton 18:00
-                <br/> HORSE GALOP race 2
+              <div mat-card-avatar class="flag-icon flag-icon-gb mr-1"></div>Kempton 18:00
+              <br/> HORSE GALOP race 2
 
-              </mat-card-title>
-              <mat-card-subtitle>14 runners, 3,881.00 GBP Prize</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <div class="d-flex flex-column" *ngFor="let c of fillerNav">
-                <div>
-                  <img class="giubba" src="https://cdn.mediasystemtechnologies.it/ippicaoutfits/20181115WAG0105.png" title="Scuderia: MESDAMES B A MOODY E A E PEASE">
-                  <b> 1</b> Al Daiha
-                </div>
-                <div>
-                  G Mosse
-                </div>
-                <div>
-                  <button mat-raised-button color="primary" class="mr-2">WIN 18.00</button>
-                  <button mat-raised-button color="primary" class="mr-2">PLA 3.40</button>
-                </div>
+            </mat-card-title>
+            <mat-card-subtitle>14 runners, 3,881.00 GBP Prize</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="d-flex flex-column" *ngFor="let c of fillerNav">
+              <div>
+                <img class="giubba" src="https://cdn.mediasystemtechnologies.it/ippicaoutfits/20181115WAG0105.png" title="Scuderia: MESDAMES B A MOODY E A E PEASE">
+                <b> 1</b> Al Daiha
               </div>
+              <div>
+                G Mosse
+              </div>
+              <div>
+                <button mat-raised-button color="primary" class="mr-2">WIN 18.00</button>
+                <button mat-raised-button color="primary" class="mr-2">PLA 3.40</button>
+              </div>
+            </div>
 
 
-            </mat-card-content>
-          </mat-card>
-        </div>
+          </mat-card-content>
+        </mat-card>
       </div>
+    </div>
 
 
-    </mat-step>
+  </mat-step>
 
-  </mat-horizontal-stepper>
+</mat-horizontal-stepper>

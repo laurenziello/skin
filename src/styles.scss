@@ -16,9 +16,9 @@ $flag-icon-css-path: '~flag-icon-css/flags';
 // **Be sure that you only ever include this mixin once!**
 @include mat-core();
 // Define the default theme (same as the example above).
-$light-indigo-primary: mat-palette($mat-indigo);
-$light-indigo-accent : mat-palette($mat-pink, A200, A100, A400);
-$light-indigo-theme : mat-light-theme($light-indigo-primary, $light-indigo-accent);
+$light-indigo-primary: mat-palette($mat-blue-grey);
+$light-indigo-accent: mat-palette($mat-orange, 900);
+$light-indigo-theme: mat-light-theme($light-indigo-primary, $light-indigo-accent);
 @mixin mix-app-theme($theme) {
     // Extract whichever individual palettes you need from the theme.
     $primary: map-get($theme, primary);
@@ -27,14 +27,32 @@ $light-indigo-theme : mat-light-theme($light-indigo-primary, $light-indigo-accen
         background-color: mat-color($primary);
         color: mat-color($primary, default-contrast);
         font-size: 0.9em;
-        cursor:pointer;
+        cursor: pointer;
     }
     .opened {
         background-color: mat-color($accent);
         color: mat-color($accent, default-contrast);
         font-size: 0.9em;
-        cursor:pointer;
+        cursor: pointer;
     }
+    
+    .header-panel {
+        &.cdk-keyboard-focused,
+        &.cdk-program-focused,
+        &:hover {
+            background: mat-color($accent) !important;
+            color: mat-color($accent, default-contrast) !important;
+        }
+    }
+    .header-panel {
+        background: mat-color($accent)!important;
+        color: mat-color($accent, default-contrast)!important;
+    }
+
+    .header-panel>.mat-expansion-indicator::after {
+        color: mat-color($accent, default-contrast)!important;
+      }
+
 }
 
 .light-indigo-theme {
@@ -42,19 +60,18 @@ $light-indigo-theme : mat-light-theme($light-indigo-primary, $light-indigo-accen
     @include mix-app-theme($light-indigo-theme);
 }
 
-$light-deep-purple-accent : mat-palette($mat-amber, A200, A100, A400);
-$light-deep-purple-primary: mat-palette($mat-deep-purple);
-$light-deep-purple-theme : mat-light-theme($light-deep-purple-primary, $light-deep-purple-accent);
+$light-deep-purple-accent: mat-palette($mat-grey, 900);
+$light-deep-purple-primary: mat-palette($mat-green, A700);
+$light-deep-purple-theme: mat-light-theme($light-deep-purple-primary, $light-deep-purple-accent);
 .light-deep-purple-theme {
     @include angular-material-theme($light-deep-purple-theme);
     @include mix-app-theme($light-deep-purple-theme);
 }
 
 // Define an alternate dark theme.
-$dark-pink-primary: mat-palette($mat-pink);
-$dark-pink-accent : mat-palette($mat-blue-grey, A200, A100, A400);
-$dark-pink-warn : mat-palette($mat-deep-orange);
-$dark-pink-theme : mat-dark-theme($dark-pink-primary, $dark-pink-accent, $dark-pink-warn);
+$dark-pink-primary: mat-palette($mat-teal);
+$dark-pink-accent: mat-palette($mat-lime, A200, A100, A400);
+$dark-pink-theme: mat-dark-theme($dark-pink-primary, $dark-pink-accent);
 // Include the alternative theme styles inside of a block with a CSS class. You can make this
 // CSS class whatever you want. In this example, any component inside of an element with
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
@@ -64,9 +81,9 @@ $dark-pink-theme : mat-dark-theme($dark-pink-primary, $dark-pink-accent, $dark-p
 }
 
 // Define an alternate dark theme.
-$dark-purple-primary: mat-palette($mat-purple);
-$dark-purple-accent : mat-palette($mat-green, A200, A100, A400);
-$dark-purple-theme : mat-dark-theme($dark-purple-primary, $dark-purple-accent);
+$dark-purple-primary: mat-palette($mat-blue, A400);
+$dark-purple-accent: mat-palette($mat-blue, 900);
+$dark-purple-theme: mat-light-theme($dark-purple-primary, $dark-purple-accent);
 // Include the alternative theme styles inside of a block with a CSS class. You can make this
 // CSS class whatever you want. In this example, any component inside of an element with
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
@@ -81,4 +98,4 @@ $dark-purple-theme : mat-dark-theme($dark-purple-primary, $dark-purple-accent);
 
 .stepper .mat-horizontal-stepper-header-container .mat-horizontal-stepper-header {
     padding-bottom: 0px;
-  }
+}

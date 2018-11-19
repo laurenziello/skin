@@ -1,51 +1,160 @@
-<div class="d-flex flex-row">
-  <div class="flex-fill p-2" *ngFor="let c of threearray">
-    <div class="d-flex flex-column">
-      <div>
+<mat-horizontal-stepper labelPosition="bottom" class="stepper">
+  <ng-template matStepperIcon="edit">
+    <mat-icon>done</mat-icon>
+  </ng-template>
+
+  <ng-template matStepperIcon="done">
+    <mat-icon>done_all</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="number" color="primay">
+    <mat-icon>done_all</mat-icon>
+  </ng-template>
+  <mat-step [completed]="true" *ngFor="let panel of chunked_arr; index as i">
+    <div class="d-flex flex-row ">
+      <div class="flex-fill p-2" *ngFor="let race of panel">
         <div class="d-flex flex-column">
-          <div class="d-flex flex-row">
-            <div>
-              <div mat-card-avatar class="flag-icon flag-icon-gb mr-1"></div>Kempton
-            </div>
-            <div class="ml-auto">18:00</div>
-          </div>
-
-          <div>HORSE GALOP race 1</div>
-          <div>5 Runners, 44,100.00 GBP Prize</div>
-        </div>
-      </div>
-      <div class="d-flex flex-column">
-        <div *ngFor="let c of threearray" class="d-flex flex-row">
-
-          <div>
-            <img class="giubba" src="https://cdn.mediasystemtechnologies.it/ippicaoutfits/20181115WAG0105.png" title="Scuderia: MESDAMES B A MOODY E A E PEASE">
-
-
-
-          </div>
-          <div>
-            <div class="d-flex flex-column">
-              <div>
-                <b> 1</b> Al Daiha
+          <div class="p-2">
+            <div class="d-flex flex-column ">
+              <div class="d-flex flex-row">
+                <div>
+                  <div mat-card-avatar class="flag-icon mr-1" [ngClass]="{
+                'flag-icon-ie':race.cid === '55',
+                'flag-icon-gb':race.cid === '242',
+                'flag-icon-in':race.cid === '90',
+                'flag-icon-it':race.cid === '112',
+                'flag-icon-za':race.cid === '203',
+                'flag-icon-us':race.cid === '202'
+              }"></div>{{race.meeting}}
+                </div>
+                <div class="ml-auto">{{race.date | date : 'HH:mm'}}</div>
               </div>
 
+              <div>HORSE GALOP race {{race.number}}</div>
+              <div>{{race.st}} Runners, {{race.prize | currency}} GBP Prize</div>
+            </div>
+          </div>
+          <div class="d-flex flex-column p-2">
+            <div class="d-flex flex-row">
               <div>
-                G Mosse
+                <img class="giubba" src="https://cdn.mediasystemtechnologies.it/ippicaoutfits/20181115WAG0105.png" title="Scuderia: MESDAMES B A MOODY E A E PEASE">
+
+              </div>
+              <div>
+                <div class="d-flex flex-column">
+                  <div>
+                    <b> 1</b> Al Daiha
+                  </div>
+                  <div>
+                    G Mosse
+                  </div>
+                </div>
+              </div>
+              <div class="ml-auto">
+                <div class="d-flex flex-column closed text-center p-2  border-right">
+                  <div>
+                    Win
+                  </div>
+                  <div>
+                    18.00
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex flex-column closed text-center p-2">
+                  <div>
+                    Pla
+                  </div>
+                  <div>
+                    3.40
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+          <div class="d-flex flex-column p-2">
+            <div class="d-flex flex-row">
+              <div>
+                <img class="giubba" src="https://cdn.mediasystemtechnologies.it/ippicaoutfits/20181119VIG0501.png" title="Scuderia: MESDAMES B A MOODY E A E PEASE">
 
+              </div>
+              <div>
+                <div class="d-flex flex-column">
+                  <div>
+                    <b> 1</b> Al Daiha
+                  </div>
+                  <div>
+                    G Mosse
+                  </div>
+                </div>
+              </div>
+              <div class="ml-auto">
+                <div class="d-flex flex-column closed text-center p-2  border-right">
+                  <div>
+                    Win
+                  </div>
+                  <div>
+                    18.00
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex flex-column closed text-center p-2">
+                  <div>
+                    Pla
+                  </div>
+                  <div>
+                    3.40
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-column p-2">
+            <div class="d-flex flex-row">
+              <div>
+                <img class="giubba" src="https://cdn.mediasystemtechnologies.it/ippicaoutfits/20181119VIG0512.png" title="Scuderia: MESDAMES B A MOODY E A E PEASE">
+
+              </div>
+              <div>
+                <div class="d-flex flex-column">
+                  <div>
+                    <b> 1</b> Al Daiha
+                  </div>
+                  <div>
+                    G Mosse
+                  </div>
+                </div>
+              </div>
+              <div class="ml-auto">
+                <div class="d-flex flex-column closed text-center p-2  border-right">
+                  <div>
+                    Win
+                  </div>
+                  <div>
+                    18.00
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex flex-column closed text-center p-2">
+                  <div>
+                    Pla
+                  </div>
+                  <div>
+                    3.40
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
 
-          <div class="ml-auto">
-            <button mat-raised-button color="primary" class="ml-1">W 18.00</button>
-            <button mat-raised-button color="primary" class="ml-1">P 3.40</button>
-          </div>
-
+          <div class="ml-auto">More ></div>
         </div>
       </div>
-      <div class="ml-auto">More ></div>
+
     </div>
-  </div>
 
-</div>
+  </mat-step>
+
+</mat-horizontal-stepper>
