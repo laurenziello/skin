@@ -108,7 +108,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   home(): void {
-    this.router.navigate(['next/']);
+    this.router.navigate(['main/']);
   }
 
   getRaces(): void {
