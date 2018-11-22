@@ -8,7 +8,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NextComponent } from './next/next.component';
 import { RaceComponent } from './race/race.component';
 import { MainComponent } from './main/main.component';
 import { NextracesComponent } from './nextraces/nextraces.component';
@@ -19,7 +18,6 @@ import { TodayraceComponent } from './todayrace/todayrace.component';
   declarations: [
     AppComponent,
     ThemePickerComponent,
-    NextComponent,
     RaceComponent,
     MainComponent,
     NextracesComponent,

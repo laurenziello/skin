@@ -13,6 +13,8 @@ export class NextracesComponent implements OnInit {
 
   chunked_arr: any = [];
 
+  array: any = [];
+
   constructor(private raceService: RaceService) { }
 
   ngOnInit() {
@@ -23,11 +25,11 @@ export class NextracesComponent implements OnInit {
     this.raceService.getNext()
       .subscribe(next => {
         const copied = [...next.race]; // ES6 destructuring
+        this.array = copied.slice(0, 3);
         const numOfChild = Math.ceil(copied.length / 3); // Round up to the nearest integer
         for (let i = 0; i < numOfChild; i++) {
           this.chunked_arr.push(copied.splice(0, 3));
         }
-        console.log(this.chunked_arr);
       });
   }
 
