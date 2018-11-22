@@ -7,6 +7,7 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RaceService } from './race.service';
+import { VgAPI } from 'videogular2/core';
 
 @Component({
   selector: 'app-root',
@@ -39,6 +40,11 @@ export class AppComponent implements OnInit, OnDestroy {
   races: any;
 
   next: any;
+
+  hlsBitrates: any;
+
+  api: VgAPI;
+
 
   /**
   * Temi disponibili
@@ -124,4 +130,22 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+
+  onGetBitrates(event: any) {
+    console.log(event);
+    this.hlsBitrates = event;
+  }
+
+  onPlayerReady(api: VgAPI) {
+    this.api = api;
+    console.log( this.api.getDefaultMedia());
+    this.api.getDefaultMedia().subscriptions.canPlayThrough.subscribe(
+      () => {
+          this.api.volume = 0;
+          this.api.play();
+      }
+  );
+
+
+}
 }
