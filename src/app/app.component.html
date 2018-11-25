@@ -101,7 +101,7 @@
 
 
       <div class="d-flex flex-column p-2">
-        <div *ngIf="router.url === '/main'" class="d-flex flex-wrap align-items-stretch pb-2">
+        <div *ngIf="router.url === '/main'" class="d-flex flex-nowrap align-items-stretch pb-2">
           <div class="flex-grow-1 ">
             <mat-card class="next-race">
               <mat-card-content>
@@ -135,34 +135,25 @@
           </div>
           <div class="pl-2">
             <mat-card class="p-2 cart">
-             
+
               <vg-player (onPlayerReady)="onPlayerReady($event)">
-            
-              
-                  <vg-controls vgFor="my-video" [vgAutohide]="true">
-                      <vg-play-pause></vg-play-pause>
-                     
-              
-                
-              
-                      <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
-              
-                    
-              
-                     
-                      <vg-mute></vg-mute>
-                      <vg-volume></vg-volume>
-              
-                      <vg-fullscreen></vg-fullscreen>
-                  </vg-controls>
-                <video #myMedia
-                       [vgMedia]="myMedia"
-                       [vgHls]="'https://betflag-live.morescreens.com/betflag-9/playlist.m3u8?video_id=27&authority_instance_id=spectar-prd-betflag&token=e23282360c611e4601d5a765675433185117dea6&profile_id=18&application_installation_id=240&subscriber_id=18&application_id=backoffice2&channel_name=no_title_long_translation_available_for_english&detected_delivery_method=hls'"
-                       (onGetBitrates)="onGetBitrates($event)"
-                       id="my-video"
-                       type="video/mp4" crossorigin>
+                <vg-controls [vgAutohide]="true" >
+                  <vg-play-pause vgFor="my-video"></vg-play-pause>
+                  <vg-mute vgFor="my-video"></vg-mute>
+                </vg-controls>
+                <video #myMedia 
+                [muted]="true" 
+                [volume]=0 
+                [vgMedia]="myMedia" 
+                [vgHls]="'https://betflag-live.morescreens.com/betflag-9/playlist.m3u8?video_id=27&authority_instance_id=spectar-prd-betflag&token=e23282360c611e4601d5a765675433185117dea6&profile_id=18&application_installation_id=240&subscriber_id=18&application_id=backoffice2&channel_name=no_title_long_translation_available_for_english&detected_delivery_method=hls'"
+                (onGetBitrates)="onGetBitrates($event)" 
+                id="my-video" 
+                type="video/mp4" 
+                preload 
+                autoplay
+                crossorigin>
                 </video>
-            </vg-player>
+              </vg-player>
             </mat-card>
           </div>
         </div>

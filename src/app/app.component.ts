@@ -119,12 +119,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
   getRaces(): void {
     this.raceService.getRaces()
-        .subscribe(races => this.races = races);
+      .subscribe(races => this.races = races);
   }
 
   getNext(): void {
     this.raceService.getNext()
-        .subscribe(next => this.next = next);
+      .subscribe(next => this.next = next);
   }
 
   ngOnDestroy(): void {
@@ -132,20 +132,20 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   onGetBitrates(event: any) {
-    console.log(event);
     this.hlsBitrates = event;
+    console.log(this.hlsBitrates );
   }
 
   onPlayerReady(api: VgAPI) {
     this.api = api;
-    console.log( this.api.getDefaultMedia());
-    this.api.getDefaultMedia().subscriptions.canPlayThrough.subscribe(
-      () => {
-          this.api.volume = 0;
-          this.api.play();
-      }
-  );
+    console.log(this.api.getDefaultMedia());
+    // this.api.getDefaultMedia().subscriptions.canPlayThrough.subscribe(
+    //   () => {
+    //     this.api.volume = 0;
+    //     this.api.play();
+    //   }
+    // );
 
 
-}
+  }
 }
