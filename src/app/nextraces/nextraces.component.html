@@ -169,7 +169,7 @@
   </mat-horizontal-stepper>-->
   <div class="d-flex flex-row ">
     <div class="flex-fill p-2" *ngFor="let race of array">
-      <div class="d-flex flex-column">
+      <div class="d-flex flex-column" *ngIf="race.race">
         <div class="p-2">
           <div class="d-flex flex-column ">
             <div class="d-flex flex-row">
@@ -190,19 +190,21 @@
             <div>{{race.st}} Runners, {{race.prize | currency}} GBP Prize</div>
           </div>
         </div>
-        <div class="d-flex flex-column p-2">
+        <div class="d-flex flex-column p-2" *ngFor="let horse of race.race.horse">
           <div class="d-flex flex-row">
             <div>
-              <img class="giubba" src="https://cdn.mediasystemtechnologies.it/ippicaoutfits/20181115WAG0105.png" title="Scuderia: MESDAMES B A MOODY E A E PEASE">
+              <img class="giubba" src="{{'https://fe-mst.mstchannel.com/wsdataupload/images/' + horse.image}}" 
+              title="Scuderia: MESDAMES B A MOODY E A E PEASE"
+              onerror="this.src='../../assets//20181125qmt010601.png'">
 
             </div>
             <div>
               <div class="d-flex flex-column">
                 <div>
-                  <b> 1</b> Al Daiha
+                  <b> {{horse.number}}</b> {{horse.name}}
                 </div>
                 <div>
-                  G Mosse
+                  {{horse.jockey}}
                 </div>
               </div>
             </div>
@@ -228,85 +230,6 @@
             </div>
           </div>
         </div>
-        <div class="d-flex flex-column p-2">
-          <div class="d-flex flex-row">
-            <div>
-              <img class="giubba" src="https://cdn.mediasystemtechnologies.it/ippicaoutfits/20181119VIG0501.png" title="Scuderia: MESDAMES B A MOODY E A E PEASE">
-
-            </div>
-            <div>
-              <div class="d-flex flex-column">
-                <div>
-                  <b> 1</b> Al Daiha
-                </div>
-                <div>
-                  G Mosse
-                </div>
-              </div>
-            </div>
-            <div class="ml-auto">
-              <div class="d-flex flex-column closed text-center p-2  border-right">
-                <div>
-                  Win
-                </div>
-                <div>
-                  18.00
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="d-flex flex-column closed text-center p-2">
-                <div>
-                  Pla
-                </div>
-                <div>
-                  3.40
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex flex-column p-2">
-          <div class="d-flex flex-row">
-            <div>
-              <img class="giubba" src="https://cdn.mediasystemtechnologies.it/ippicaoutfits/20181119VIG0512.png" title="Scuderia: MESDAMES B A MOODY E A E PEASE">
-
-            </div>
-            <div>
-              <div class="d-flex flex-column">
-                <div>
-                  <b> 1</b> Al Daiha
-                </div>
-                <div>
-                  G Mosse
-                </div>
-              </div>
-            </div>
-            <div class="ml-auto">
-              <div class="d-flex flex-column closed text-center p-2  border-right">
-                <div>
-                  Win
-                </div>
-                <div>
-                  18.00
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="d-flex flex-column closed text-center p-2">
-                <div>
-                  Pla
-                </div>
-                <div>
-                  3.40
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="ml-auto">More ></div>
       </div>
     </div>
 

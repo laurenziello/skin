@@ -26,6 +26,13 @@ export class NextracesComponent implements OnInit {
       .subscribe(next => {
         const copied = [...next.race]; // ES6 destructuring
         this.array = copied.slice(0, 3);
+        this.array.map(element => {
+          this.raceService.getRace(element.id)
+          .subscribe(race => {
+            element.race = race.race;
+          });
+        });
+        console.log(this.array);
         const numOfChild = Math.ceil(copied.length / 3); // Round up to the nearest integer
         for (let i = 0; i < numOfChild; i++) {
           this.chunked_arr.push(copied.splice(0, 3));
