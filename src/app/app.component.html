@@ -74,7 +74,7 @@
 
                 <div class="d-flex flex-wrap">
 
-                  <div class="d-flex flex-column p-1 border-right" [ngClass]="{
+                  <div class="d-flex flex-column p-1 border-right border-bottom" [ngClass]="{
                       'closed':race.st === '1',
                       'opened':race.st === '14'
                     }"
@@ -100,7 +100,7 @@
 
     <mat-sidenav-content>
       <div class="d-flex flex-column p-2">
-        <div class="d-flex horiz-card"  *ngIf="next">
+        <div class="d-flex horiz-card" *ngIf="next">
           <mat-card class="next-card mr-2 mb-2" *ngFor="let race of next.race" (click)="racedetail(race.id)">
             <div>
               <div class="d-flex">
@@ -129,24 +129,24 @@
                 </div>
               </div>
               <div class="footer">
-                <hr class="mt-0"/>
+                <hr class="mt-0" />
                 <div class="d-flex">
                   <div>
                     <h5>{{race.date | date : 'HH:mm'}}</h5>
-                   
+
                   </div>
                   <div class="ml-auto" [ngSwitch]="race.weather">
-                  
-                        <i *ngSwitchCase="'Overcast'"  class="wi wi-cloudy"></i>
 
-                        <i *ngSwitchCase="'Drizzle'"  class="wi wi-day-sprinkle"></i>
+                    <i *ngSwitchCase="'Overcast'" class="wi wi-cloudy"></i>
 
-                        <i *ngSwitchCase="'Sunny'"  class="wi wi-day-sunny"></i>
+                    <i *ngSwitchCase="'Drizzle'" class="wi wi-day-sprinkle"></i>
 
-                        <i *ngSwitchCase="'Fine'"  class="wi wi-day-sunny-overcast"></i>
+                    <i *ngSwitchCase="'Sunny'" class="wi wi-day-sunny"></i>
+
+                    <i *ngSwitchCase="'Fine'" class="wi wi-day-sunny-overcast"></i>
 
 
-                        <i *ngSwitchCase="'Bright but Cold'"  class="wi wi-day-light-wind"></i>
+                    <i *ngSwitchCase="'Bright but Cold'" class="wi wi-day-light-wind"></i>
                   </div>
 
                 </div>
@@ -216,20 +216,43 @@
                   </mat-panel-description>
                 </mat-expansion-panel-header>-->
 
-                <mat-card class="cart">
-                  <mat-card-content>
-                    <div class="d-flex flex-column mb-3">
-                      <div class="p-2 "> item 1</div>
-                      <div class="p-2"> item 2</div>
-                      <div class="p-2"> item 3</div>
+            <mat-card class="cart">
+              <mat-card-content>
+                <div class="d-flex flex-column border-bottom mb-2" *ngFor="let element of cartService.cart.elements">
+                  <div class="d-flex flex-column">
+                    <div class="d-flex">
+                      <div class="mr-auto">{{element.type | uppercase}}</div>
+                      <div>
+                        <mat-icon>close</mat-icon>
+                      </div>
                     </div>
-                  </mat-card-content>
-                  <mat-card-actions>
-                    <button mat-flat-button color="primary" class="mr-2">BOOK</button>
-                    <button mat-flat-button color="primary">PLACE BET</button>
-                  </mat-card-actions>
-                </mat-card>
-              <!--</mat-expansion-panel>
+                    <div class="d-flex">
+                      <div class="mr-auto">{{element.number}} {{element.name}}</div>
+                    </div>
+                    <div class="d-flex">
+                      <div class="mr-auto">{{element.ippodromo}} {{element.race}} {{element.time}}</div>
+                      <div>
+                        {{element.quota/100}}
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="d-flex align-items-end flex-column">
+                    <div>Total odds {{cartService.cart.totalodds/100}}</div>
+                    <div>  
+                      <mat-form-field>
+                        <input matInput placeholder="Bet" #box [value]="cartService.cart.bet" >
+                      </mat-form-field></div>
+                      <div>Max Win {{box.value*cartService.cart.totalodds/100}}</div>
+                </div>
+              </mat-card-content>
+              <mat-card-actions class="text-center">
+                <button mat-flat-button color="primary" class="mr-2">BOOK</button>
+                <button mat-flat-button color="primary">PLACE BET</button>
+              </mat-card-actions>
+            </mat-card>
+            <!--</mat-expansion-panel>
             </mat-accordion>-->
 
           </div>

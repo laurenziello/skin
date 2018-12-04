@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RaceComponent } from './race/race.component';
 import { NextracesComponent } from './nextraces/nextraces.component';
 import { TodayraceComponent } from './todayrace/todayrace.component';
+import { FormsModule } from '@angular/forms';
 // Import your library
 
 @NgModule({
@@ -37,7 +38,8 @@ import { TodayraceComponent } from './todayrace/todayrace.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

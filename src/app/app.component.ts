@@ -8,6 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RaceService } from './race.service';
 import { VgAPI } from 'videogular2/core';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-root',
@@ -80,7 +81,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
     public router: Router,
-    private raceService: RaceService) {
+    private raceService: RaceService,
+    public cartService: CartService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
