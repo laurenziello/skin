@@ -4,11 +4,18 @@
 }
 
 .giubba{
-    max-height: 36px;
-    max-width: 36px;
-    padding-top: 8px;
+    max-height: 22px;
+    max-width: 22px;
 }
 
 .closed{
     min-width: 60px; 
+}
+
+.next-race {
+    min-width: 300px;
+
+}
+:host{
+    width: 100%;
 }

@@ -28,7 +28,9 @@
             ],
             "styles": [
               "node_modules/videogular2/fonts/videogular.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/weathericons/css/weather-icons.css",
+              "src/assets/weathericons/css/weather-icons-wind.css"
             ],
             "scripts": [
               "node_modules/hls.js/dist/hls.min.js"

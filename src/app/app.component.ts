@@ -37,7 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  races: any;
+  races: any = [];
 
   next: any;
 
@@ -74,7 +74,9 @@ export class AppComponent implements OnInit, OnDestroy {
   currentTheme: Theme;
 
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public overlayContainer: OverlayContainer,
+  constructor(changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher,
+    public overlayContainer: OverlayContainer,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
     public router: Router,
@@ -133,12 +135,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   onGetBitrates(event: any) {
     this.hlsBitrates = event;
-    console.log(this.hlsBitrates );
   }
 
   onPlayerReady(api: VgAPI) {
     this.api = api;
-    console.log(this.api.getDefaultMedia());
     // this.api.getDefaultMedia().subscriptions.canPlayThrough.subscribe(
     //   () => {
     //     this.api.volume = 0;

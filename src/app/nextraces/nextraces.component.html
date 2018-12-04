@@ -1,4 +1,4 @@
-<mat-expansion-panel class="expansidenav " [expanded]=true>
+<!--<mat-expansion-panel class="expansidenav " [expanded]=true>
   <mat-expansion-panel-header class="header-panel" collapsedHeight="35px" expandedHeight="35px">
     <mat-panel-title class="header-panel">
       Next Races
@@ -6,7 +6,7 @@
     <mat-panel-description class="header-panel">
 
     </mat-panel-description>
-  </mat-expansion-panel-header>
+  </mat-expansion-panel-header>-->
   <!--<mat-horizontal-stepper labelPosition="bottom" class="stepper">
     <ng-template matStepperIcon="edit">
       <mat-icon>done</mat-icon>
@@ -167,71 +167,80 @@
     </mat-step>
 
   </mat-horizontal-stepper>-->
-  <div class="d-flex flex-row ">
-    <div class="flex-fill p-2" *ngFor="let race of array">
+  <div class="d-flex">
+    <mat-card *ngFor="let race of array" class="mr-1 next-race">
       <div class="d-flex flex-column" *ngIf="race.race">
         <div class="p-2">
           <div class="d-flex flex-column ">
             <div class="d-flex flex-row">
               <div>
                 <div mat-card-avatar class="flag-icon mr-1" [ngClass]="{
-            'flag-icon-ie':race.cid === '55',
-            'flag-icon-gb':race.cid === '242',
-            'flag-icon-in':race.cid === '90',
-            'flag-icon-it':race.cid === '112',
-            'flag-icon-za':race.cid === '203',
-            'flag-icon-us':race.cid === '202'
+                  'flag-icon-ie':race.cid === '55',
+                  'flag-icon-gb-eng':race.cid === '242',
+                  'flag-icon-in':race.cid === '90',
+                  'flag-icon-it':race.cid === '112',
+                  'flag-icon-za':race.cid === '203',
+                  'flag-icon-us':race.cid === '202',
+                  'flag-icon-gb-sct':race.cid === '241'
           }"></div>{{race.meeting}}
               </div>
               <div class="ml-auto">{{race.date | date : 'HH:mm'}}</div>
             </div>
-
-            <div>HORSE GALOP race {{race.number}}</div>
-            <div>{{race.st}} Runners, {{race.prize | currency}} GBP Prize</div>
+            <div class="d-flex flex-row">
+              <div>
+                <mat-icon svgIcon="horse" color="accent"></mat-icon>
+              </div>
+              <div class="ml-auto">Race {{race.number}}</div>
+            </div>
+            <div class="d-flex flex-row">
+              <div>{{race.st}} Runners</div>
+              <div class="ml-auto">{{race.prize | currency}} GBP</div>
+            </div>
           </div>
+          <hr class="mt-0">
         </div>
-        <div class="d-flex flex-column p-2" *ngFor="let horse of race.race.horse">
+
+        <div class="d-flex flex-column pb-1" *ngFor="let horse of race.race.horse; index as i">
           <div class="d-flex flex-row">
             <div>
-              <img class="giubba" src="{{'https://fe-mst.mstchannel.com/wsdataupload/images/' + horse.image}}" 
-              title="Scuderia: MESDAMES B A MOODY E A E PEASE"
-              onerror="this.src='../../assets//20181125qmt010601.png'">
+              <img class="giubba" src="{{'https://fe-mst.mstchannel.com/wsdataupload/images/' + horse.image}}" title="Scuderia: MESDAMES B A MOODY E A E PEASE"
+                onerror="this.src='../../assets//20181125qmt010601.png'">
 
             </div>
             <div>
               <div class="d-flex flex-column">
-                <div>
+                <div class="horse-row">
                   <b> {{horse.number}}</b> {{horse.name}}
                 </div>
-                <div>
+                <div class="horse-row">
                   {{horse.jockey}}
                 </div>
               </div>
             </div>
             <div class="ml-auto">
-              <div class="d-flex flex-column closed text-center p-2  border-right">
+              <div *ngIf="horse.quotaVincente && horse.quotaVincente > 0" class="d-flex flex-column closed text-center p-2  border-right">
                 <div>
                   Win
                 </div>
                 <div>
-                  18.00
+                  {{horse.quotaVincente/100}}
                 </div>
               </div>
             </div>
             <div>
-              <div class="d-flex flex-column closed text-center p-2">
+              <div *ngIf="horse.quotaPiazzato && horse.quotaPiazzato > 0" class="d-flex flex-column closed text-center p-2">
                 <div>
                   Pla
                 </div>
                 <div>
-                  3.40
+                  {{horse.quotaPiazzato/100}}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </mat-card>
 
   </div>
-</mat-expansion-panel>
+<!--</mat-expansion-panel>-->

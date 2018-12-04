@@ -28,9 +28,34 @@ export class NextracesComponent implements OnInit {
         this.array = copied.slice(0, 3);
         this.array.map(element => {
           this.raceService.getRace(element.id)
-          .subscribe(race => {
-            element.race = race.race;
-          });
+            .subscribe(race => {
+              console.log(race);
+              race.race.horse.map(horse => {
+                console.log(horse);
+                if (race.race.qf[0].odds) {
+                  const quotaVincente = race.race.qf[0].odds.filter(
+                    qf => qf.esito === horse.number
+                  );
+                  if (quotaVincente.length > 0) {
+                    horse.quotaVincente = quotaVincente[0].quota;
+                  } else {
+                    horse.quotaVincente = 0;
+                  }
+                }
+                if (race.race.qf[1].odds) {
+                  const quotaPiazzato = race.race.qf[1].odds.filter(
+                    qf => qf.esito === horse.number
+                  );
+                  if (quotaPiazzato.length > 0) {
+                    horse.quotaPiazzato = quotaPiazzato[0].quota;
+                  } else {
+                    horse.quotaPiazzato = 0;
+                  }
+                }
+
+              });
+              element.race = race.race;
+            });
         });
         console.log(this.array);
         const numOfChild = Math.ceil(copied.length / 3); // Round up to the nearest integer

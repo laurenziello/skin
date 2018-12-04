@@ -10,6 +10,7 @@
     <div class="logoimg" (click)="home()">
 
     </div>
+    <!--
     <div *ngIf="next" class="flex-grow-1 example-footer mat-expansion-panel-content">
       <div class="d-flex">
         <div class="flex-fill closed text-center border-right" *ngFor="let race of next.race" (click)="racedetail(race.id)">
@@ -20,11 +21,12 @@
           <div class="pl-3 pr-3 flag-footer">
             <div mat-card-avatar class="flag-icon  mr-1" [ngClass]="{
               'flag-icon-ie':race.cid === '55',
-              'flag-icon-gb':race.cid === '242',
+              'flag-icon-gb-eng':race.cid === '242',
               'flag-icon-in':race.cid === '90',
               'flag-icon-it':race.cid === '112',
               'flag-icon-za':race.cid === '203',
-              'flag-icon-us':race.cid === '202'
+              'flag-icon-us':race.cid === '202',
+              'flag-icon-gb-sct':race.cid === '241'
             }"></div>
             <span matBadge="{{race.number}}" matBadgeOverlap="false" matBadgeColor="accent">{{race.meeting |
               slice:0:4}}</span>
@@ -32,14 +34,14 @@
         </div>
       </div>
     </div>
-
+-->
     <div class="ml-auto">
       <app-theme-picker (selectTheme)="onSetTheme($event)" [currentTheme]="currentTheme" [themes]="themes"></app-theme-picker>
     </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+    <mat-sidenav #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
       <mat-nav-list>
         <mat-accordion *ngIf="races">
@@ -53,7 +55,8 @@
                   'flag-icon-in':country.id === '90',
                   'flag-icon-it':country.id === '112',
                   'flag-icon-za':country.id === '203',
-                  'flag-icon-us':country.id === '202'
+                  'flag-icon-us':country.id === '202',
+                  'flag-icon-gb-sct':country.id === '241'
                 }"></div>
                 {{country.country}}
               </mat-panel-title>
@@ -96,11 +99,61 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-
-
-
-
       <div class="d-flex flex-column p-2">
+        <div class="d-flex horiz-card"  *ngIf="next">
+          <mat-card class="next-card mr-2 mb-2" *ngFor="let race of next.race" (click)="racedetail(race.id)">
+            <div>
+              <div class="d-flex">
+                <div>
+                  <div mat-card-avatar class="flag-icon  mr-1" [ngClass]="{
+                        'flag-icon-ie':race.cid === '55',
+                        'flag-icon-gb-eng':race.cid === '242',
+                        'flag-icon-in':race.cid === '90',
+                        'flag-icon-it':race.cid === '112',
+                        'flag-icon-za':race.cid === '203',
+                        'flag-icon-us':race.cid === '202',
+                        'flag-icon-gb-sct':race.cid === '241'
+                      }"></div>
+
+                </div>
+                <div class="ml-auto text-next">{{race.meeting}}
+                </div>
+
+              </div>
+              <div class="d-flex">
+                <div>
+                  <mat-icon svgIcon="horse" color="accent"></mat-icon>
+                </div>
+                <div class="ml-auto">
+                  Race {{race.number}}
+                </div>
+              </div>
+              <div class="footer">
+                <hr class="mt-0"/>
+                <div class="d-flex">
+                  <div>
+                    <h5>{{race.date | date : 'HH:mm'}}</h5>
+                   
+                  </div>
+                  <div class="ml-auto" [ngSwitch]="race.weather">
+                  
+                        <i *ngSwitchCase="'Overcast'"  class="wi wi-cloudy"></i>
+
+                        <i *ngSwitchCase="'Drizzle'"  class="wi wi-day-sprinkle"></i>
+
+                        <i *ngSwitchCase="'Sunny'"  class="wi wi-day-sunny"></i>
+
+                        <i *ngSwitchCase="'Fine'"  class="wi wi-day-sunny-overcast"></i>
+
+
+                        <i *ngSwitchCase="'Bright but Cold'"  class="wi wi-day-light-wind"></i>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
         <div *ngIf="router.url === '/main'" class="d-flex flex-nowrap align-items-stretch pb-2">
           <div class="flex-grow-1 ">
             <mat-card class="next-race">
@@ -137,33 +190,21 @@
             <mat-card class="p-2 cart">
 
               <vg-player (onPlayerReady)="onPlayerReady($event)">
-                <vg-controls [vgAutohide]="true" >
-                  <vg-play-pause vgFor="my-video"></vg-play-pause>
-                  <vg-mute vgFor="my-video"></vg-mute>
-                </vg-controls>
-                <video #myMedia 
-                [muted]="true" 
-                [volume]=0 
-                [vgMedia]="myMedia" 
-                [vgHls]="'https://betflag-live.morescreens.com/betflag-9/playlist.m3u8?video_id=27&authority_instance_id=spectar-prd-betflag&token=e23282360c611e4601d5a765675433185117dea6&profile_id=18&application_installation_id=240&subscriber_id=18&application_id=backoffice2&channel_name=no_title_long_translation_available_for_english&detected_delivery_method=hls'"
-                (onGetBitrates)="onGetBitrates($event)" 
-                id="my-video" 
-                type="video/mp4" 
-                preload 
-                autoplay
-                crossorigin>
+                <video #myMedia [muted]="true" [vgMedia]="myMedia" [vgHls]="'https://betflag-live.morescreens.com/betflag-9/playlist.m3u8?video_id=27&authority_instance_id=spectar-prd-betflag&token=e23282360c611e4601d5a765675433185117dea6&profile_id=18&application_installation_id=240&subscriber_id=18&application_id=backoffice2&channel_name=no_title_long_translation_available_for_english&detected_delivery_method=hls'"
+                  (onGetBitrates)="onGetBitrates($event)" id="my-video" type="video/mp4" preload autoplay crossorigin
+                  controls>
                 </video>
               </vg-player>
             </mat-card>
           </div>
         </div>
 
-        <div class="d-flex">
-          <div class="flex-grow-1 ">
+        <div class="d-flex flex-nowrap align-items-stretch ">
+          <div class="flex-grow-1 horiz-card">
             <router-outlet></router-outlet>
           </div>
           <div class="pl-2">
-            <mat-accordion displayMode='flat' [multi]=true class="cart-accordion">
+            <!--<mat-accordion displayMode='flat' [multi]=true class="cart-accordion">
               <mat-expansion-panel class="expansidenav " [expanded]=true hideToggle>
                 <mat-expansion-panel-header class="header-panel" collapsedHeight="35px" expandedHeight="35px">
                   <mat-panel-title class="header-panel">
@@ -173,7 +214,7 @@
                     <span></span>
                     <mat-icon>receipt</mat-icon>
                   </mat-panel-description>
-                </mat-expansion-panel-header>
+                </mat-expansion-panel-header>-->
 
                 <mat-card class="cart">
                   <mat-card-content>
@@ -188,8 +229,8 @@
                     <button mat-flat-button color="primary">PLACE BET</button>
                   </mat-card-actions>
                 </mat-card>
-              </mat-expansion-panel>
-            </mat-accordion>
+              <!--</mat-expansion-panel>
+            </mat-accordion>-->
 
           </div>
         </div>
