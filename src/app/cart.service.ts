@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class CartService {
 
   cart: any = {
-  totalodds: 182000,
+  totalodds: 1820,
   bet: 10,
   elements: [
     {
