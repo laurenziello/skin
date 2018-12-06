@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { RaceService } from './race.service';
 import { VgAPI } from 'videogular2/core';
 import { CartService } from './cart.service';
+import { UpdateService } from './worker/update.service';
 
 @Component({
   selector: 'app-root',
@@ -82,7 +83,9 @@ export class AppComponent implements OnInit, OnDestroy {
     private domSanitizer: DomSanitizer,
     public router: Router,
     private raceService: RaceService,
-    public cartService: CartService) {
+    public cartService: CartService,
+    private update: UpdateService) {
+    this.update.checkForUpdates();
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
