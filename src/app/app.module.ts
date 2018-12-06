@@ -18,6 +18,8 @@ import { RaceComponent } from './race/race.component';
 import { NextracesComponent } from './nextraces/nextraces.component';
 import { TodayraceComponent } from './todayrace/todayrace.component';
 import { FormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 // Import your library
 
 @NgModule({
@@ -30,6 +32,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
